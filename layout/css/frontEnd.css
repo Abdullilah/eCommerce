@@ -1,0 +1,272 @@
+/* Start Main */
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: #F4F4F4;
+    font-size: 16px;
+}
+
+h1{
+    font-size: 55px;
+    margin: 40px 0;
+    font-weight: bold;
+    color: #666666;
+}
+
+.forms{
+    position: relative;
+}   
+
+.star{
+    color: #FF0000;
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    font-size: 20px;
+}
+/* End Main */
+
+
+/* Start Login Section */
+
+.login{
+    width: 300px;
+    margin: 100px auto;
+}
+
+.login input{
+    margin-bottom: 10px;
+}
+
+.login .form-control{
+    background-color: #E5E5E5;
+}
+
+.login .btn{
+    background-color: #008dde;
+}
+
+.login h3{
+    color: #af9393;
+    padding-bottom: 10px;
+}
+/* End Login Section */
+
+/* Start navBar */
+.navbar{
+    border-radius: 0;
+    margin-bottom: 0;
+}
+
+.navbar-nav > li > a,
+.navbar-brand{
+    padding: 15px 12px; 
+}
+
+.navbar-brand{
+    font-size: 1em;
+}
+
+.navbar-inverse .navbar-nav > .open > a, 
+.navbar-inverse .navbar-nav > .open > a:hover, 
+.navbar-inverse .navbar-nav > .open > a:focus, 
+.dropdown-menu{
+    background-color: #3498db;
+}
+
+.dropdown-menu{
+    min-width: 180px;
+    padding: 0;
+    font-size: 1em;
+    border: none;
+    border-radius: 0;
+}
+
+.dropdown-menu > li > a {
+    color: #FFF; 
+    padding: 5px 15px;
+}
+
+.dropdown-menu > li > a:hover, 
+.dropdown-menu > li > a:focus {
+    color: #4a0808;
+    background-color: #a1b59f;
+}
+
+.my-image{
+    width: 35px;
+    height: 35px;
+}
+
+/* End navBar */
+
+/* Start Categories */
+.price-tag{
+    background-color: rgba(29, 150, 6, 0.58);
+    padding: 7px;
+    left: -4px;
+    top: 170px;
+    position: relative;
+    color: #FFF;
+}
+
+.thumbnail .caption {
+    padding: 5px 20px 10px;
+}
+
+.thumbnail .caption h3{
+    font-weight: bold;
+    color: #E26A6A;
+}
+
+h3{
+    font-weight: bold;
+}
+
+
+/* End Categories */
+
+/* Start upper bar */
+.upper-bar{
+    padding: 10px;
+    background-color: #FFF;
+}
+/* End upper bar */
+
+/* Start loginSignUp */
+.loginSignUp{
+    max-width: 420px;
+}
+
+.loginSignUp h1{
+    color: #999999;
+    margin-bottom: 70px;
+}
+
+.loginSignUp form input{
+    margin-bottom: 10px;
+}
+
+.loginSignUp span{
+    cursor: pointer;
+}
+
+.loginSignUp span.active1{
+    color: #337ab7;
+}
+
+.loginSignUp span.active2{
+    color: #5cb85c;
+}
+
+.loginSignUp .signupForm{
+    display: none;
+}
+/* End loginSignUp */
+
+/* Start My profile */
+.list-unstyled{
+    margin: 10px;
+}
+
+.list-unstyled li{
+    padding: 10px;
+}
+
+.info .list-unstyled li:nth-child(odd){
+    background-color: #DDDDDD;
+}
+
+.list-unstyled li span{
+    display: inline-block;
+    width: 160px;
+}
+/* End My profile */
+
+/* Start New ad */
+.panel-body {
+    padding-top: 40px;   
+}
+.newAdFrom .star{
+    right: 26px;
+    top: 12px;
+    font-size: 23px;
+}
+/* End New ad */
+
+/* Start Item info */
+
+
+.info-item  .list-unstyled li {
+    padding: 5px;
+    margin-left: -12px;
+}
+
+.info-item .list-unstyled li span {
+    width: 90%;
+}
+
+.info-item .list-unstyled li:nth-child(odd){
+    background-color: #DDDDDD;
+}
+
+.info-item h2{
+    color: #989696;
+}
+
+.dashedLine{
+    width: 90%;
+    height: 3px;
+    display: block;
+    background-color: #b9b7b7;
+    margin: 24px auto;
+}
+
+.comm-item{
+    padding: 20px;
+    margin-top: 25px;
+    background-color: #DDDDDD;
+}
+
+.comm-item p.nameCom{
+    font-size: 18px;
+    font-weight: bold;
+    color: #c37272;
+}
+
+h2{
+    color: #c37272;
+}
+
+.addComm textarea{
+    width: 100%;
+    margin: 10px 0;
+    height: 100px;
+}
+
+p.waiting{
+    color: rgb(235, 255, 236);
+    background-color: rgba(193, 121, 121, 0.84);
+    margin: 24px 56px -49px -4px;
+    z-index: 100;
+    position: relative;
+    padding: 5px;
+}
+
+.thumbnail {
+    height: 420px;
+    overflow-y: auto;
+}
+
+.dateAd{
+    font-size: 15px;
+    color: #797979;
+    background-color: rgba(93, 40, 40, 0.18);
+    padding: 0 5px;
+    position: absolute;
+    left: 0;
+    top: 10px;
+    margin-left: 16px;
+}
+/* End Item info */

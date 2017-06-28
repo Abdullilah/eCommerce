@@ -1,0 +1,316 @@
+/* Start Main */
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: #F4F4F4;
+    font-size: 16px;
+    padding-bottom: 50px;
+}
+
+.star{
+    color: #FF0000;
+    position: absolute;
+    right: 25px;
+    top: 12px;
+    font-size: 24px;
+}
+/* End Main */
+
+
+/* Start Login Section */
+
+.login{
+    width: 300px;
+    margin: 100px auto;
+}
+
+.login input{
+    margin-bottom: 10px;
+}
+
+.login .form-control{
+    background-color: #E5E5E5;
+}
+
+.login .btn{
+    background-color: #008dde;
+}
+
+.login h3{
+    color: #af9393;
+    padding-bottom: 10px;
+}
+/* End Login Section */
+
+/* Start navBar */
+.navbar{
+    border-radius: 0;
+    margin-bottom: 0;
+}
+
+.navbar-nav > li > a,
+.navbar-brand{
+    padding: 15px 12px; 
+}
+
+.navbar-brand{
+    font-size: 1em;
+}
+
+.navbar-inverse .navbar-nav > .open > a, 
+.navbar-inverse .navbar-nav > .open > a:hover, 
+.navbar-inverse .navbar-nav > .open > a:focus, 
+.dropdown-menu{
+    background-color: #3498db;
+}
+
+.dropdown-menu{
+    min-width: 180px;
+    padding: 0;
+    font-size: 1em;
+    border: none;
+    border-radius: 0;
+}
+
+.dropdown-menu > li > a {
+    color: #FFF; 
+    padding: 5px 15px;
+}
+
+.dropdown-menu > li > a:hover, 
+.dropdown-menu > li > a:focus {
+    color: #4a0808;
+    background-color: #a1b59f;
+}
+
+.flags img{
+    width: 28px;
+    margin-top: 17px;
+    margin-left: 3px;
+    cursor: pointer;
+}
+
+/* End navBar */
+
+/* Start Dashbord */
+.home-stats .stat{
+    border: 1px solid #CCC;
+    padding: 20px;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
+.home-stats h4{
+    color: #FFF;
+}
+
+.home-stats .stat a,
+.home-stats .stat{
+    color: #FFF;
+}
+
+.home-stats .stat{
+    position: relative;
+    min-height: 166px;
+}
+
+.home-stats .stat .info{
+    left: 120px;
+    position: absolute;
+}
+
+.home-stats .stat i{
+    position: absolute;
+    font-size: 80px;
+    top: 40px;
+    left: 25px;
+}
+
+.home-stats .stat a:hover{
+    text-decoration: none;
+}
+
+.home-stats .stat span{
+    display: block;
+    font-size: 60px;
+}
+
+.home-stats .st-members{
+    background-color: #3498DB;
+}
+
+.home-stats .st-pendings{
+    background-color: #EC644B;
+}
+
+.home-stats .st-pendings .info{
+    left: 95px;
+}
+
+.home-stats .st-items{
+    background-color: #87D37C;
+}
+
+.home-stats .st-comments{
+    background-color: #9B59B6;
+}
+
+.latest{
+    margin-top: 30px;
+}
+
+.latest-uusers{
+    margin-bottom: 0;
+}
+
+.latest-users li{
+    padding: 12px;
+    vertical-align: middle;
+}
+
+.latest-users li:nth-child(odd){
+    background-color: #EEE;
+}
+
+.latest-users li .btn{
+    padding: 5px 8px;
+    position: relative;
+    bottom: 5px;
+}
+
+.latest-users li .active{
+    margin-right: 5px;
+}
+
+.panel-heading{
+    position: relative;
+}
+
+.panel-heading .act{
+    bottom: 5px;
+    right: 33px;
+    position: relative;
+    padding: 5px;
+    background-color: #31b0d5;
+}
+
+.panel-heading i.plus{
+    position: absolute;
+    right: 22px;
+    top: 12px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.panel-heading i.plus:hover{
+    color: #B5B5B5;
+}
+
+span.nameCom{
+    font-weight: bold;
+    color: #969696;
+}
+
+li.comCom:before{
+    content: "";
+    display: block;
+    position: relative;
+    left: -39px;
+    top: -3px;
+    max-width: 0;
+    height: 0;
+    border-color: transparent #EFEFEF transparent transparent;
+    border-style: solid;
+    border-width: 15px;
+}
+
+
+li.comCom{
+    margin: 5px 20px 25px 20px;
+    padding: 10px 10px 40px 10px;
+    background-color: #EFEFEF;
+}
+
+li.comCom p{
+    margin-top: -10px;
+    text-align: left;
+}
+
+.com-btns{
+    margin-top: 5px;
+    position: relative;
+}
+/* End Dashbord */
+
+/* Start Members */
+h1{
+    font-size: 55px;
+    margin: 40px 0;
+    font-weight: bold;
+    color: #666666;
+}
+
+.show-pass{
+    position: absolute;
+    top: 6px;
+    right: -30px;
+    cursor: pointer;
+}
+
+.table-main{
+    -webkit-box-shadow: 0 3px 10px #CCC;
+    -moz-box-shadow: 0 3px 10px #CCC;
+    box-shadow: 0 3px 10px #CCC;
+}
+
+.table-main tr td{
+    background-color: #FFF;
+    vertical-align: middle !important;
+}
+
+.table-main tr:first-child td{
+    background-color: #56585C;
+    color: #FFF;
+}
+.table-main tr:first-child:hover td{
+    background-color: #56585C;
+}
+
+.table-main tr:hover td{
+    background-color: #DADFE1;
+}
+
+.table-main .btn{
+    padding: 3px 10px;
+    margin: 3px;
+}
+
+.table-main .btn-info{
+    margin-left: 5px;
+}
+
+.table-main .activited{
+    color: #EC644B;
+    font-size: 20px;
+}
+
+.table-main .arrow{
+    margin-left: 5px;
+}
+
+.widthTable{
+    max-width: 500px;
+    text-align: left;
+}
+/* End Members */
+
+@media only screen and (max-width: 991px)  {
+    .home-stats .stat{
+        margin-bottom: 12px;
+    }
+    .panel-heading .act{
+        display: none;
+    }
+}
+
