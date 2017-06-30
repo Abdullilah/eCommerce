@@ -98,15 +98,15 @@
             ?>
             <h1 class="text-center">Add New Member</h1>
                 <div class="container">
-                    <form class="form-horizontal" action="members.php?do=Insert" method="POST">
-                        <!-- Satrt Username -->
+                    <form class="form-horizontal" action="members.php?do=Insert" method="POST" enctype="multipart/form-data">
+                        <!-- Start Username -->
                         <div class="form-group form-group-lg">
                             <label class="col-sm-2 control-label">Username</label>
                             <div class="col-sm-10 col-md-4">
                                 <input type="text" name="username" class="form-control" autocomplete="off" placeholder="Username" required="required"/>
                             </div>
                         </div>
-                        <!-- Satrt Password -->
+                        <!-- Start Password -->
                         <div class="form-group form-group-lg">
                             <label class="col-sm-2 control-label">Password</label>
                             <div class="col-sm-10 col-md-4">
@@ -114,18 +114,25 @@
                                 <i class="show-pass fa fa-eye fa-2x"></i>
                             </div>
                         </div>
-                        <!-- Satrt Email -->
+                        <!-- Start Email -->
                         <div class="form-group form-group-lg">
                             <label class="col-sm-2 control-label">Email</label>
                             <div class="col-sm-10 col-md-4">
                                 <input type="email" name="email" class="form-control" placeholder="Email" required="required"/>
                             </div>
                         </div>
-                        <!-- Satrt Fullname -->
+                        <!-- Start Fullname -->
                         <div class="form-group form-group-lg">
                             <label class="col-sm-2 control-label">Full Name</label>
                             <div class="col-sm-10 col-md-4">
                                 <input type="text" name="full" class="form-control" placeholder="Full Name" required="required"/>
+                            </div>
+                        </div>
+                        <!-- Start image -->
+                        <div class="form-group form-group-lg">
+                            <label class="col-sm-2 control-label">Full Name</label>
+                            <div class="col-sm-10 col-md-4">
+                                <input type="file" name="avatar" class="form-control" required="required"/>
                             </div>
                         </div>
                         <!-- Save -->
@@ -148,35 +155,53 @@
                 $pass   = $_POST['password'];
                 $email  = $_POST['email'];
                 $name   = $_POST['full'];
-                
+   
                 $shaPass = sha1($pass);
+                
+                // upload the image
+                $avatarName = $_FILES['avatar']['name'];
+                $avatarSize = $_FILES['avatar']['size'];
+                $avatarTmp  = $_FILES['avatar']['tmp_name'];
+                $avatatType = $_FILES['avatar']['type'];
+                
+                $avatarAllowedExtension = array('jpeg', 'jpg', 'gif', 'png');
+                $avatarExtension = strtolower(end(explode('.',$avatarName)));
                 
                 // Check the input before modify the database
                 $errorArray = array();
-                if(empty($user))        { $errorArray[] = "Username can not be <b>empty</b>"; }
-                if(empty($pass))        { $errorArray[] = "Password can not be <b>empty</b>"; }
-                if(strlen($user)< 4)    { $errorArray[] = "Username should be <b>longer than 4</b>";}
-                if(strlen($user)> 20)   { $errorArray[] = "Username should be <b>less than 20</b>";}
-                if(empty($email))       { $errorArray[] = "Email can not be <b>empty</b>";}
-                if(empty($name))        { $errorArray[] = "Full Name can not be <b>empty</b>";}
+                if(empty($user))            { $errorArray[] = "Username can not be <b>empty</b>"; }
+                if(empty($pass))            { $errorArray[] = "Password can not be <b>empty</b>"; }
+                if(strlen($user)< 4)        { $errorArray[] = "Username should be <b>longer than 4</b>";}
+                if(strlen($user)> 20)       { $errorArray[] = "Username should be <b>less than 20</b>";}
+                if(empty($email))           { $errorArray[] = "Email can not be <b>empty</b>";}
+                if(empty($name))            { $errorArray[] = "Full Name can not be <b>empty</b>";}
+                if(!empty($avatarName) && !in_array($avatarExtension, $avatarAllowedExtension))
+                                            { $errorArray[] = "The image extension <b>is not allowed</b>";}
+                if(empty($avatarName))      { $errorArray[] = "Upload image is <b>required</b>";}
+                if($avatarSize > 4194304)   { $errorArray[] = "Image size should be less than <b>4Mb</b>";}
                 
                 foreach($errorArray as $error){
                     echo "<div class='alert alert-danger'>" . $error . "</div>";
                 }    
                 
                 if(empty($errorArray)){
+                    // image process
+                    $avatar = rand(0, 100000) . '_' . $avatarName;
+                    move_uploaded_file($avatarTmp, 'layout\uploads\\'.$avatar);
+                    
                     // Insert into the database
                     $check = checkItem("Username", "users", $user);
                     if($check == 1){
                         $message = 'This Username is already taken';
                         redirecting('', $message, 6, 'members.php?do=Add', 'danger');
                     } else{
-                        $stmt = $con->prepare("INSERT INTO users(Username, Password, Email, Fullname, RegStatus, Date) VALUES(:zuser, :zpass, :zmail, :zname, 0, now())");
+                        $stmt = $con->prepare("INSERT INTO users(Username, Password, Email, Fullname, RegStatus, Date, avatar) VALUES(:zuser, :zpass, :zmail, :zname, 0, now(), :zavatar)");
                         $stmt->execute(array(
-                            'zuser' => $user,
-                            'zpass' => $shaPass,
-                            'zmail' => $email,
-                            'zname' => $name
+                            'zuser'     => $user,
+                            'zpass'     => $shaPass,
+                            'zmail'     => $email,
+                            'zname'     => $name,
+                            'zavatar'   => $avatar 
                         ));
 
                         // Print message

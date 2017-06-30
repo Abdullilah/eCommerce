@@ -2,28 +2,32 @@
     <div class="container">
         <?php
             if(isset($_SESSION['NormalUser'])){
-                ?>
-                    <img class='my-image img-thumbnail img-circle' src='layout/images/image.png' alt='' />
-                    <div class="btn-group myinfo">
-                        <span class="btn btn-defult dropdown-toggle" data-toggle="dropdown">
-                            <?php echo $_SESSION['NormalUser']; ?>
-                            <span class="caret"></span>
-                        </span> 
-                        <ul class="dropdown-menu">
-                            <li><a href='profile.php'>My Profile</a></li>
-                            <li><a href='newAd.php'>New Item</a></li>
-                            <li><a href='logout.php'>log-out</a></li>
-                        </ul>
-                    </div>
-                <?php
-                
-                $stmt = $con->prepare("SELECT Username, RegStatus FROM users WHERE Username=? AND RegStatus=0");
-                $stmt-> execute(array($_SESSION['NormalUser']));
+                $stmt = $con->prepare("SELECT * FROM users WHERE UserID=?");
+                $stmt-> execute(array($_SESSION['uID']));
+                $row = $stmt-> fetch();
                 $count = $stmt->rowCount();
                 if($count == 1){
-                    
+                    if($row['avatar'] == null){
+                        ?><img class='my-image img-circle' src='admin\layout\images\image.png' alt='' /><?php
+                    } else{
+                        ?><img class='my-image img-circle' src='admin\layout\uploads\<?php echo $row['avatar']; ?>' alt='' /><?php
+                    }
+                    ?>
+                        <div class="btn-group myinfo">
+                            <span class="btn btn-defult dropdown-toggle" data-toggle="dropdown">
+                                <?php echo $_SESSION['NormalUser']; ?>
+                                <span class="caret"></span>
+                            </span> 
+                            <ul class="dropdown-menu">
+                                <li><a href='profile.php'>My Profile</a></li>
+                                <li><a href='newAd.php'>New Item</a></li>
+                                <li><a href='logout.php'>log-out</a></li>
+                            </ul>
+                        </div>
+                    <?php
                 } else{
-                    
+                    echo "Sorry but this user is not valid";
+                    header("refresh:1;url=login.php");
                 }
             } else{
                 echo '

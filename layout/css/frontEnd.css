@@ -166,6 +166,15 @@ h3{
 /* End loginSignUp */
 
 /* Start My profile */
+
+.my-profImg img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    width: 15%;
+}
+
 .list-unstyled{
     margin: 10px;
 }

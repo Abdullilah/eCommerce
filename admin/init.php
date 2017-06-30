@@ -6,7 +6,8 @@
     $tpl = 'includes/templates/';  // Template root
     $lan = 'includes/languages/';  // languages root
     $func= 'includes/functions/';  // functions root
-
+    $js = 'layout/js/';
+    $css = 'layout/css/';
     
     if(!isset($_SESSION['Languages'])){
         $_SESSION['Languages'] = 'english';

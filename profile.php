@@ -24,6 +24,14 @@
                         <h1 class="text-center">My Profile</h1>
                         <div class="information">
                             <div class="container">
+                                <?php
+                                    if($info['avatar'] != null){
+                                    ?><div class="my-profImg">
+                                            <img class="img-thumbnail img-circle" 
+                                               src="admin\layout\uploads\<?php echo $info['avatar']; ?>" alt="">
+                                      </div><?php
+                                    }
+                                ?>
                                 <div class="panel panel-primary">
                                     <div class="panel-heading">My information</div>
                                     <div class="panel-body">
